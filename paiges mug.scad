@@ -1,11 +1,18 @@
-scale([2,2,3]) {
+//parameters
+width=40;
+height=60;
+bottom_thickness=2;
+wall_thickness=3;
+
+
+//render
 difference() {
 intersection () {
-    cube ( [20,20,20], center=true) ;
-  sphere(14) ;
+    cube ( [width,width,height], center=true) ;
+    scale ([1,1,height/width])
+  sphere(width/2*sqrt (2)) ;
    
 }
-translate([ 0,0,-8]) 
-cylinder(h=22,r=8);
-}
+translate([ 0,0,-height/2+bottom_thickness]) 
+cylinder(r=width/2-wall_thickness,h=height);
 }
